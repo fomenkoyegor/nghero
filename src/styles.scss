@@ -44,7 +44,11 @@ $primary-bg: whitesmoke;
       background-repeat: no-repeat;
       background-size: cover;
       background-image: url("assets/loading.gif");
-
+      @media screen and (max-width: 800px) {
+        &{
+          flex: 2;
+        }
+      }
       &.empty {
         background-image: url("assets/placeholder.jpg");
       }
