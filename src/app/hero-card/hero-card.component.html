@@ -1,0 +1,33 @@
+<div class="heroe" *ngIf="hero">
+  <ng-container *ngIf="hero && hero.image.url;else herocover">
+    <div class="heroe-cover"
+         [style.background-image]="'url(' +  hero.image.url + ')'"
+         (click)="onGetHero()"
+    ></div>
+  </ng-container>
+  <ng-template #herocover>
+    <div class="heroe-cover"
+         (click)="onGetHero()"
+    ></div>
+  </ng-template>
+  <div class="heroe-info">
+    <h1 class="heroe-info__name">
+      <ng-container *ngIf="hero && hero.name;else heroname">
+        {{hero.name}} <span class="add" (click)="onAdd()">+</span>
+      </ng-container>
+      <ng-template #heroname>
+        hero <span class="add" (click)="onAdd()">+</span>
+      </ng-template>
+    </h1>
+
+    <app-progress *ngIf="hero.powerstats" [value]="hero.powerstats.intelligence" [name]="'intelligence'"></app-progress>
+    <app-progress *ngIf="hero.powerstats" [value]="hero.powerstats.strength" [name]="'strength'"></app-progress>
+    <app-progress *ngIf="hero.powerstats" [value]="hero.powerstats.durability" [name]="'durability'"></app-progress>
+    <app-progress *ngIf="hero.powerstats" [value]="hero.powerstats.combat" [name]="'combat'"></app-progress>
+    <app-progress *ngIf="hero.powerstats"  [value]="hero.powerstats.power" [name]="'power'"></app-progress>
+
+
+
+
+  </div>
+</div>

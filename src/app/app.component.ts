@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'superheroes';
+  public title = 'superheroes';
+  public cards = [0];
+  public count = 0;
+
+  public addCard(): void {
+    this.count++;
+    this.cards.push(this.count);
+  }
 }
